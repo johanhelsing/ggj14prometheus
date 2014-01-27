@@ -2,6 +2,8 @@
 
 Bring light to the world by dying repeatedly in the dark.
 
+![Screenshot](prometheus.png)
+
 ## Download
 
 * The game can be downloaded for Linux, OS X and Windows [here](http://folk.ntnu.no/johanklo/prometheus/download).
