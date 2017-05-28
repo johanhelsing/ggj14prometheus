@@ -6,10 +6,12 @@ public class FadeInLight : MonoBehaviour {
 	public AnimationCurve rangeAnimation = AnimationCurve.Linear(0,0,1,1);
 	private float goalRange;
 	private float goalIntensity;
+	private Light light;
 
 
 	// Use this for initialization
 	void Start () {
+		light = GetComponent<Light>();
 		goalRange = light.range;
 		light.range = 0;
 		goalIntensity = light.intensity;
