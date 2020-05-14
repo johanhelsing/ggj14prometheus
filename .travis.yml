@@ -13,22 +13,22 @@ before_install:
 - docker pull $IMAGE_NAME
 jobs:
   include:
-  - stage: test
-    script: "chmod +x ./ci/docker_test.sh && ./ci/docker_test.sh"
-    env: TEST_PLATFORM=editmode IMAGE_NAME=gableroux/unity3d:2019.3.7f1
-    addons:
-      artifacts:
-        s3_region: "us-west-1"
-        paths:
-        - "$(pwd)/$TEST_PLATFORM-results.xml"
-  - stage: test
-    script: "chmod +x ./ci/docker_test.sh && ./ci/docker_test.sh"
-    env: TEST_PLATFORM=playmode IMAGE_NAME=gableroux/unity3d:2019.3.7f1
-    addons:
-      artifacts:
-        s3_region: "us-west-1"
-        paths:
-        - "$(pwd)/$TEST_PLATFORM-results.xml"
+  #- stage: test
+  #  script: "chmod +x ./ci/docker_test.sh && ./ci/docker_test.sh"
+  #  env: TEST_PLATFORM=editmode IMAGE_NAME=gableroux/unity3d:2019.3.7f1
+  #  addons:
+  #    artifacts:
+  #      s3_region: "us-west-1"
+  #      paths:
+  #      - "$(pwd)/$TEST_PLATFORM-results.xml"
+  #- stage: test
+  #  script: "chmod +x ./ci/docker_test.sh && ./ci/docker_test.sh"
+  #  env: TEST_PLATFORM=playmode IMAGE_NAME=gableroux/unity3d:2019.3.7f1
+  #  addons:
+  #    artifacts:
+  #      s3_region: "us-west-1"
+  #      paths:
+  #      - "$(pwd)/$TEST_PLATFORM-results.xml"
   - stage: build
     env: BUILD_TARGET=StandaloneLinux64 IMAGE_NAME=gableroux/unity3d:2019.3.7f1
     script: "chmod +x ./ci/docker_build.sh && ./ci/docker_build.sh"
@@ -37,27 +37,27 @@ jobs:
         s3_region: "us-west-1"
         paths:
         - "./Builds/"
-  - stage: build
-    env: BUILD_TARGET=StandaloneOSX IMAGE_NAME=gableroux/unity3d:2019.3.7f1-mac
-    script: "chmod +x ./ci/docker_build.sh && ./ci/docker_build.sh"
-    addons:
-      artifacts:
-        s3_region: "us-west-1"
-        paths:
-        - "./Builds/"
-  - stage: build
-    env: BUILD_TARGET=StandaloneWindows64 IMAGE_NAME=gableroux/unity3d:2019.3.7f1-windows
-    script: "chmod +x ./ci/docker_build.sh &&./ci/docker_build.sh"
-    addons:
-      artifacts:
-        s3_region: "us-west-1"
-        paths:
-        - "./Builds/"
-  - stage: build
-    env: BUILD_TARGET=WebGL IMAGE_NAME=gableroux/unity3d:2019.3.7f1-webgl
-    script: "chmod +x ./ci/docker_build.sh && ./ci/docker_build.sh"
-    addons:
-      artifacts:
-        s3_region: "us-west-1"
-        paths:
-        - "./Builds/"
+  #- stage: build
+  #  env: BUILD_TARGET=StandaloneOSX IMAGE_NAME=gableroux/unity3d:2019.3.7f1-mac
+  #  script: "chmod +x ./ci/docker_build.sh && ./ci/docker_build.sh"
+  #  addons:
+  #    artifacts:
+  #      s3_region: "us-west-1"
+  #      paths:
+  #      - "./Builds/"
+  #- stage: build
+  #  env: BUILD_TARGET=StandaloneWindows64 IMAGE_NAME=gableroux/unity3d:2019.3.7f1-windows
+  #  script: "chmod +x ./ci/docker_build.sh &&./ci/docker_build.sh"
+  #  addons:
+  #    artifacts:
+  #      s3_region: "us-west-1"
+  #      paths:
+  #      - "./Builds/"
+  #- stage: build
+  #  env: BUILD_TARGET=WebGL IMAGE_NAME=gableroux/unity3d:2019.3.7f1-webgl
+  #  script: "chmod +x ./ci/docker_build.sh && ./ci/docker_build.sh"
+  #  addons:
+  #    artifacts:
+  #      s3_region: "us-west-1"
+  #      paths:
+  #      - "./Builds/"
